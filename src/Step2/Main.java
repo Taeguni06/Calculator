@@ -5,8 +5,7 @@ import java.util.Scanner;
 public class Main {
     static void main() {
         Calculator calculator = new Calculator();
-        Scanner sc = new Scanner(System.in);
-
+        Scanner sc = new Scanner(System.in); // test
 
         for (int i = 0; ; i++) {
             System.out.println("i= " + i);
