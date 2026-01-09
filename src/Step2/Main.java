@@ -8,7 +8,6 @@ public class Main {
         Scanner sc = new Scanner(System.in); // test
 
         for (int i = 0; ; i++) {
-            System.out.println("i= " + i);
             System.out.println("계산할 숫자를 입력해주세요.");
             System.out.println("숫자 1:");
             int num1 = sc.nextInt();
@@ -42,9 +41,10 @@ public class Main {
             switch (action) {
                 case "2":
                     System.out.println(calculator.getResultList());
-                    calculator.plus(0,0);
+                    break;
                 case "3":
                     calculator.removeResult();
+                    break;
                 case "0":
                     break;
             }
