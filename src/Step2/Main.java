@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     static void main() {
         Calculator calculator = new Calculator();
-        Scanner sc = new Scanner(System.in); // test
+        Scanner sc = new Scanner(System.in);
 
         for (int i = 0; ; i++) {
             System.out.println("계산할 숫자를 입력해주세요.");
@@ -32,23 +32,24 @@ public class Main {
                     calculator.divide(num1, num2);
                     break;
             }
-            System.out.println("결과값: " + calculator.getResult(i));
 
-
-
-            System.out.println("1. 계산 2. 전체 조회 3. 마지막 결과 삭제 0. 종료");
-            String action = sc.nextLine();
-            switch (action) {
-                case "2":
-                    System.out.println(calculator.getResultList());
+            int action;
+            for (; ; ) {
+                System.out.println("1. 계산 2. 마지막 결과 삭제 0. 종료");
+                action = sc.nextInt();
+                if (action == 1) {
+                    System.out.println("계산을 시작합니다.\n");
                     break;
-                case "3":
+                } else if (action == 2) {
                     calculator.removeResult();
+                } else if (action == 0) {
                     break;
-                case "0":
-                    break;
+                } else {
+                    System.out.println("\n다시 입력해주세요.");
+                }
             }
-        }
+            if (action == 0) { break; }
 
+        }
     }
 }
