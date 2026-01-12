@@ -16,7 +16,7 @@ public class App {
                 action = sc.nextInt();
                 if (action == 1) {
                     try {
-                        for (int i = 0; ; i++) {
+                        for (;;) {
                             System.out.println("계산할 숫자를 입력해주세요.");
                             System.out.println("숫자 1:");
                             int num1 = sc.nextInt();
@@ -43,7 +43,6 @@ public class App {
                                 default:
                                     System.out.println("연산자를 다시 입력해주세요.");
                             }
-
                             break;
                         }
                     } catch (InputMismatchException e) {
