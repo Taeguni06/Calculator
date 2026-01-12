@@ -16,30 +16,40 @@ public class Calculator {
 
     void minus(int a, int b){
         result.add(a - b);
-        System.out.println("계산 기록:" + result);
+        System.out.println("결과값: " + getResultLast());
     }
 
     void multiply(int a, int b){
         result.add(a * b);
-        System.out.println("계산 기록:" + result);
+        System.out.println("결과값: " + getResultLast());
     }
 
     void divide(int a, int b){
         result.add(a / b);
-        System.out.println("계산 기록:" + result);
+        System.out.println("결과값: " + getResultLast());
     }
 
-    void removeResult() {
+    void removeResultFirst() {
         if (result.isEmpty()) {
-            System.out.println("\n검색 기록이 없습니다.");
+            System.out.println("\n기록이 없습니다.");
         }else {
             result.removeFirst();
-            System.out.println("계산 기록:" + result);
         }
     }
 
-    int getResult (int a) {
-        return result.get(a);
+    void removeResultLast() {
+        if (result.isEmpty()) {
+            System.out.println("\n기록이 없습니다.");
+        }else {
+            result.removeLast();
+        }
+    }
+
+    ArrayList<Integer> getResult() {
+        return result;
+    }
+    int getResultLast () {
+        return result.getLast();
     }
 
 }
