@@ -7,14 +7,5 @@ import java.util.Scanner;
 
 public class App {
     static void main() {
-        Calculator cal = new Calculator();
-        Scanner sc = new Scanner(System.in);
-        String result = "";
-        double n1 = sc.nextDouble();
-        double n2 = sc.nextDouble();
-        String op = sc.nextLine();
-        cal.calculate(n1, n2, op);
-
-
     }
 }
