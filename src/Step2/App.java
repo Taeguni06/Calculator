@@ -26,23 +26,7 @@ public class App {
                             System.out.println("숫자 2:");
                             int num2 = sc.nextInt();
                             sc.nextLine(); // 범퍼
-
-                            switch (operator) {
-                                case "+":
-                                    calculator.plus(num1, num2);
-                                    break;
-                                case "-":
-                                    calculator.minus(num1, num2);
-                                    break;
-                                case "*":
-                                    calculator.multiply(num1, num2);
-                                    break;
-                                case "/":
-                                    calculator.divide(num1, num2);
-                                    break;
-                                default:
-                                    System.out.println("연산자를 다시 입력해주세요.");
-                            }
+                            calculator.calculate(num1,num2,operator);
                             break;
                         }
                     } catch (InputMismatchException e) {
@@ -65,3 +49,20 @@ public class App {
         }
     }
 }
+//                            switch (operator) {
+//                                case "+":
+//                                    calculator.plus(num1, num2);
+//                                    break;
+//                                case "-":
+//                                    calculator.minus(num1, num2);
+//                                    break;
+//                                case "*":
+//                                    calculator.multiply(num1, num2);
+//                                    break;
+//                                case "/":
+//                                    calculator.divide(num1, num2);                                    //수정 전
+//                                    break;
+//                                default:
+//                                    System.out.println("연산자를 다시 입력해주세요.");
+//                            }
+//                            break;

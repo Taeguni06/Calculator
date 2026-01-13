@@ -26,5 +26,5 @@ public enum Operator {
             }
         }
         throw new IllegalArgumentException("해당하는 연산자가 없습니다: " + symbol);
-}
+    }
 }
