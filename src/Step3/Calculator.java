@@ -50,13 +50,11 @@ public class Calculator<T extends Number>{
                 else if (input1.equals("remove")) { cal.removeResult(); } // 삭제
 
                 else if (input1.equals("history")) {
-                    System.out.println("계산 기록: " + cal.getResult()); } // 조회
-
-                else if (input1.equals("find")){
-                    System.out.println("입력하신 값보다 큰 값을 출력합니다.");  // 더 큰 값 출력
+                    System.out.println("계산 기록: " + cal.getResult());
+                    System.out.println("입력하신 값보다 큰 값만 출력합니다.");  // 더 큰 값 출력
                     double compare = sc.nextDouble();
                     cal.numberFinder(compare);
-                }
+                } // 조회
 
                 else if (input1.equals("fix")) { // 수정
                     System.out.println("계산 기록: " + cal.getResult());
