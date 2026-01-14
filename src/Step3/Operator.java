@@ -7,7 +7,12 @@ public enum Operator {
     PLUS("+", Double::sum), // 같은 동작 (a,b) -> a + b
     MINUS("-", (a,b) -> a - b),
     MULTIPLY("*", (a,b) -> a * b),
-    DIVIDE("/", (a,b) -> a / b);
+    DIVIDE("/", ((a,b) -> {
+        if (b == 0) {
+            System.out.println("0은 나눌 수 없습니다.");
+        }
+        return a / b;
+    }));
 
 
     private final DoubleBinaryOperator op;

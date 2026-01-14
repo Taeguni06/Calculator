@@ -109,14 +109,20 @@ public class Calculator<T extends Number>{
 
 
                     case "fix":  // 수정
+                        System.out.println("수정을 원하시는 번호를 입력해주세요 (왼쪽부터 0번) 나가시려면 exit 입력 ");
                         System.out.println("계산 기록: " + cal.getResult());
-                        System.out.println("수정을 원하시는 번호를 입력해주세요 (왼쪽부터 0번)");
-                        int num = sc.nextInt();
-                        System.out.println("수정하실 숫자를 입력해주세요.");
-                        String fixedNum = sc.next();
-                        T fixed = converter.apply(fixedNum);
-                        cal.result.set(num, fixed);
-                        System.out.println("계산 기록: " + cal.getResult());
+                        String fix = sc.next();
+                        if(fix.equals("exit")) {
+                            System.out.println("종료합니다.");
+                            break;
+                        } else {
+                            int num = Integer.parseInt(fix);
+                            System.out.println("수정하실 숫자를 입력해주세요.");
+                            String fixedNum = sc.next();
+                            T fixed = converter.apply(fixedNum);
+                            cal.result.set(num, fixed);
+                            System.out.println("계산 기록: " + cal.getResult());
+                        }
                         break;
 
 

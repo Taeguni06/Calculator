@@ -13,10 +13,10 @@ public class App {
                 System.out.println("1. 정수 계산기(int) 2. 실수 계산기(double) 0. 종료");
                 int action = sc.nextInt();
                 if (action == 1) {
-                    System.out.println("[정수 계산기] 숫자 두 개와 연산자를 입력하세요 기록 조회: history 기록 삭제: remove 수정: fix 종료: exit");
+                    System.out.println("[정수 계산기] 숫자 두 개와 연산자를 입력하세요 기록 조회: history 기록 수정: fix 삭제: remove 종료: exit");
                     Calculator.runCalculator(sc, intCal, Integer::valueOf);
                 } else if (action == 2) {
-                    System.out.println("[실수 계산기] 숫자 두 개와 연산자를 입력하세요 기록 조회: history 기록 삭제: remove 수정: fix 종료: exit");
+                    System.out.println("[실수 계산기] 숫자 두 개와 연산자를 입력하세요 기록 조회: history 기록 수정: fix 삭제: remove 종료: exit");
                     Calculator.runCalculator(sc, doubleCal, Double::valueOf);
                 } else if (action == 0) {
                     System.out.println("종료합니다.");
