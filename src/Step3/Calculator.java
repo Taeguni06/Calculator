@@ -32,6 +32,14 @@ public class Calculator<T extends Number>{
         return result;
     }
 
+    void removeResult () {
+        if (result.isEmpty()) {
+            System.out.println("계산 기록이 없습니다.");
+        } else {
+            result.clear();
+        }
+    }
+
     // App에서 action 입력 받는 Scanner 재활용
     static <T extends Number> void runCalculator(Scanner sc , Calculator<T> cal, Function<String, T> converter) {
         while (true) {
@@ -39,17 +47,19 @@ public class Calculator<T extends Number>{
                 System.out.print("계산 기록 " + cal.getResult() + "\n숫자 1: ");
                 String input1 = sc.next();
                 if (input1.equals("exit")) break;
+                else if (input1.equals("remove")) { cal.removeResult(); }
+                else {
+                    System.out.print("연산자 (+, -, *, /): ");
+                    String op = sc.next();
 
-                System.out.print("연산자 (+, -, *, /): ");
-                String op = sc.next();
+                    System.out.print("숫자 2: ");
+                    String input2 = sc.next();
 
-                System.out.print("숫자 2: ");
-                String input2 = sc.next();
+                    T n1 = converter.apply(input1);
+                    T n2 = converter.apply(input2);
 
-                T n1 = converter.apply(input1);
-                T n2 = converter.apply(input2);
-
-                cal.calculate(n1, n2, op);
+                    cal.calculate(n1, n2, op);
+                }
 
             } catch (Exception e) {
                 System.out.println("[입력 오류] 다시 입력해주세요.");

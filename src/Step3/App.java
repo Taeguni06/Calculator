@@ -16,10 +16,10 @@ public class App {
                 System.out.println("1. 정수 계산기(int) 2. 실수 계산기(double) 3. 정수 숫자 찾기 4. 실수 숫자 찾기 0. 종료");
                 int action = sc.nextInt();
                 if (action == 1) {
-                    System.out.println("\n[정수 계산기] 숫자 두 개와 연산자를 입력하세요 (종료하려면 'exit' 입력)");
+                    System.out.println("[정수 계산기] 숫자 두 개와 연산자를 입력하세요 (종료하려면 'exit' 입력)");
                     Calculator.runCalculator(sc, intCal, Integer::valueOf);
                 } else if (action == 2) {
-                    System.out.println("\n[실수 계산기] 숫자 두 개와 연산자를 입력하세요 (종료하려면 'exit' 입력)");
+                    System.out.println("[실수 계산기] 숫자 두 개와 연산자를 입력하세요 (종료하려면 'exit' 입력)");
                     Calculator.runCalculator(sc, doubleCal, Double::valueOf);
                 } else if (action == 3) {
                     System.out.println("[정수 계산기] 입력하신 값보다 큰 값을 반환합니다.");
