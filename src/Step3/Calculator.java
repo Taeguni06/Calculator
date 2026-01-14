@@ -60,7 +60,7 @@ public class Calculator<T extends Number>{
                         break;
                     case "history":  // 조회
                         System.out.println("계산 기록: " + cal.getResult());
-                        System.out.println("1. 큰 값 찾기 2. 작은 값 찾기");
+                        System.out.println("1. 큰 값 찾기 2. 작은 값 찾기 0. 종료");
                         String action = sc.next();
                         if (action.equals("1")) {
                             System.out.println("입력하신 값보다 큰 값만 출력합니다.");  // 더 큰 값 출력
@@ -72,7 +72,8 @@ public class Calculator<T extends Number>{
 
                             double compare = sc.nextDouble();
                             cal.smallFinder(compare);
-                        } else System.out.println("해당하는 기능이 없습니다.");
+                        } else if (action.equals("0")) { break;
+                        }else System.out.println("해당하는 기능이 없습니다.");
                         break;
                     case "fix":  // 수정
                         System.out.println("계산 기록: " + cal.getResult());
@@ -101,7 +102,7 @@ public class Calculator<T extends Number>{
             } catch (Exception e) {
                 System.out.println("[입력 오류] 다시 입력해주세요.");
                 sc.nextLine();
-            }                       // runCalculator 실행시 input1, input2, op 입력 받고 ex) n1에 convert.apply(input) ==
+            }
         }
     }
 }
