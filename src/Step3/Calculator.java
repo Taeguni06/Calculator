@@ -37,7 +37,15 @@ public class Calculator<T extends Number>{
         return result;
     }
 
-    void removeResult () { // 계산 기록 삭제
+    void removeResult (int a) { // 계산 기록 삭제
+        if (result.isEmpty()) {
+            System.out.println("계산 기록이 없습니다.");
+        } else {
+            result.remove(a);
+        }
+    }
+
+    void removeResultAll () { // 계산 기록 삭제
         if (result.isEmpty()) {
             System.out.println("계산 기록이 없습니다.");
         } else {
@@ -55,26 +63,51 @@ public class Calculator<T extends Number>{
                 switch (input1) {
                     case "exit":
                         break label;
+
+
                     case "remove":
-                        cal.removeResult();
+                        System.out.println("1. 선택 삭제 2. 전체 삭제 0. 종료");
+                        String remove = sc.next();
+                        switch (remove) {
+                            case "1":
+                                System.out.println("계산 기록: " + cal.getResult());
+                                System.out.println("몇 번 항목을 삭제하시겠습니까? (왼쪽부터 0번)");
+                                int removeNum = sc.nextInt();
+                                cal.removeResult(removeNum);
+                                System.out.println("계산 기록: " + cal.getResult());
+                                break;
+                            case "2":
+                                if (cal.result.isEmpty()) {
+                                    System.out.println("계산 기록이 없습니다.");
+                                } else {
+                                    System.out.println("전체 기록을 삭제했습니다.");
+                                    cal.removeResultAll();
+                                    System.out.println("계산 기록: " + cal.getResult());
+                                }
+                                break;
+                        }
                         break;
+
+
                     case "history":  // 조회
                         System.out.println("계산 기록: " + cal.getResult());
                         System.out.println("1. 큰 값 찾기 2. 작은 값 찾기 0. 종료");
-                        String action = sc.next();
-                        if (action.equals("1")) {
+                        String history = sc.next();
+                        if (history.equals("1")) {
                             System.out.println("입력하신 값보다 큰 값만 출력합니다.");  // 더 큰 값 출력
 
                             double compare = sc.nextDouble();
                             cal.bigFinder(compare);
-                        } else if (action.equals("2")) {
+                        } else if (history.equals("2")) {
                             System.out.println("입력하신 값보다 작은 값만 출력합니다."); // 더 작은 값 출력
 
                             double compare = sc.nextDouble();
                             cal.smallFinder(compare);
-                        } else if (action.equals("0")) { break;
+                        } else if (history.equals("0")) { break;
                         }else System.out.println("해당하는 기능이 없습니다.");
                         break;
+
+
                     case "fix":  // 수정
                         System.out.println("계산 기록: " + cal.getResult());
                         System.out.println("수정을 원하시는 번호를 입력해주세요 (왼쪽부터 0번)");
@@ -85,6 +118,8 @@ public class Calculator<T extends Number>{
                         cal.result.set(num, fixed);
                         System.out.println("계산 기록: " + cal.getResult());
                         break;
+
+
                     default:                       // 생성
                         System.out.print("연산자 (+, -, *, /): ");
                         String op = sc.next();
