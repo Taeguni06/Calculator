@@ -22,17 +22,17 @@ public class Calculator<T extends Number>{
         System.out.println("결과: " + finalResult);
     }
 
-    void numberFinder(double n) {
+    void numberFinder(double n) { // 입력한 값보다 큰 값 출력
         result.stream()
                 .filter(x -> x.doubleValue() > n)
                 .forEach(x -> System.out.println("더 큰 값: " + x));
     }
 
-    public ArrayList<T> getResult() {
+    public ArrayList<T> getResult() { // 기록 조회
         return result;
     }
 
-    void removeResult () {
+    void removeResult () { // 계산 기록 삭제
         if (result.isEmpty()) {
             System.out.println("계산 기록이 없습니다.");
         } else {

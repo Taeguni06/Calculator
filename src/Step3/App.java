@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class App {
     static void main() {
-        Calculator<Double> doubleCal = new Calculator<>(d -> d);
-        Calculator<Integer> intCal = new Calculator<>(Double::intValue);
+        Calculator<Double> doubleCal = new Calculator<>(d -> d); //실수형
+        Calculator<Integer> intCal = new Calculator<>(Double::intValue); //정수형 구분
         Scanner sc = new Scanner(System.in);
 
         while(true) {
