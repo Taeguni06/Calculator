@@ -19,7 +19,7 @@ public class App {
                     System.out.println("[정수 계산기] 숫자 두 개와 연산자를 입력하세요 종료: exit 기록 삭제: remove");
                     Calculator.runCalculator(sc, intCal, Integer::valueOf);
                 } else if (action == 2) {
-                    System.out.println("[실수 계산기] 숫자 두 개와 연산자를 입력하세요 종료: exit 기록 삭제: remove");
+                    System.out.println("[실수 계산기] 숫자 두 개와 연산자를 입력하세요 종료: exit 기록 조회: history 기록 삭제: remove");
                     Calculator.runCalculator(sc, doubleCal, Double::valueOf);
                 } else if (action == 3) {
                     System.out.println("[정수 계산기] 입력하신 값보다 큰 값을 반환합니다.");

@@ -44,10 +44,12 @@ public class Calculator<T extends Number>{
     static <T extends Number> void runCalculator(Scanner sc , Calculator<T> cal, Function<String, T> converter) {
         while (true) {
             try {
-                System.out.print("계산 기록 " + cal.getResult() + "\n숫자 1: ");
+                System.out.print("숫자 1: ");
                 String input1 = sc.next();
                 if (input1.equals("exit")) break;
                 else if (input1.equals("remove")) { cal.removeResult(); }
+                else if (input1.equals("history")) {
+                    System.out.println("계산 기록: " + cal.getResult()); }
                 else {
                     System.out.print("연산자 (+, -, *, /): ");
                     String op = sc.next();
