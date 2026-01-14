@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class App {
     static void main() {
         Calculator<Double> doubleCal = new Calculator<>(d -> d);
-        Calculator<Integer> intCal = new Calculator<>((Double d) -> d.intValue());
+        Calculator<Integer> intCal = new Calculator<>(Double::intValue);
         Scanner sc = new Scanner(System.in);
 
         while(true) {
@@ -23,12 +23,12 @@ public class App {
                     Calculator.runCalculator(sc, doubleCal, Double::valueOf);
                 } else if (action == 3) {
                     System.out.println("[정수 계산기] 입력하신 값보다 큰 값을 반환합니다.");
-                    double test = sc.nextDouble();
-                    intCal.numberFinder(test);
+                    double num = sc.nextDouble();
+                    intCal.numberFinder(num);
                 } else if (action == 4) {
                     System.out.println("[실수 계산기] 입력하신 값보다 큰 값을 반환합니다.");
-                    double test = sc.nextDouble();
-                    doubleCal.numberFinder(test);
+                    double num = sc.nextDouble();
+                    doubleCal.numberFinder(num);
                 } else if (action == 0) {
                     System.out.println("종료합니다.");
                     break;
