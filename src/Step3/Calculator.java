@@ -48,8 +48,15 @@ public class Calculator<T extends Number>{
                 String input1 = sc.next();
                 if (input1.equals("exit")) break;
                 else if (input1.equals("remove")) { cal.removeResult(); }
+
                 else if (input1.equals("history")) {
                     System.out.println("계산 기록: " + cal.getResult()); }
+
+                else if (input1.equals("find")){
+                    System.out.println("입력하신 값보다 큰 값을 출력합니다.");
+                    double compare = sc.nextDouble();
+                    cal.numberFinder(compare);
+                }
                 else {
                     System.out.print("연산자 (+, -, *, /): ");
                     String op = sc.next();
