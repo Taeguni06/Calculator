@@ -3,7 +3,6 @@ package Step3;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.function.Function;
-import java.util.stream.Stream;
 
 public class Calculator<T extends Number>{
     private final ArrayList<T> result = new ArrayList<>();
