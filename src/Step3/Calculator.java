@@ -47,51 +47,55 @@ public class Calculator<T extends Number>{
 
     // App에서 action 입력 받는 Scanner 재활용
     static <T extends Number> void runCalculator(Scanner sc , Calculator<T> cal, Function<String, T> converter) {
+        label:
         while (true) {
             try {
                 System.out.print("숫자 1: ");
                 String input1 = sc.next();
-                if (input1.equals("exit")) break;
+                switch (input1) {
+                    case "exit":
+                        break label;
+                    case "remove":
+                        cal.removeResult();
+                        break;
+                    case "history":  // 조회
+                        System.out.println("계산 기록: " + cal.getResult());
+                        System.out.println("1. 큰 값 찾기 2. 작은 값 찾기");
+                        String action = sc.next();
+                        if (action.equals("1")) {
+                            System.out.println("입력하신 값보다 큰 값만 출력합니다.");  // 더 큰 값 출력
 
-                else if (input1.equals("remove")) { cal.removeResult(); } // 삭제
+                            double compare = sc.nextDouble();
+                            cal.bigFinder(compare);
+                        } else if (action.equals("2")) {
+                            System.out.println("입력하신 값보다 작은 값만 출력합니다."); // 더 작은 값 출력
 
-                else if (input1.equals("history")) {
-                    System.out.println("계산 기록: " + cal.getResult());
-                    System.out.println("1. 큰 값 찾기 2. 작은 값 찾기");
-                    int action = sc.nextInt();
-                    if (action == 1) {
-                        System.out.println("입력하신 값보다 큰 값만 출력합니다.");  // 더 큰 값 출력
-                        double compare = sc.nextDouble();
-                        cal.bigFinder(compare);
-                    } else if (action == 2) {
-                        System.out.println("입력하신 값보다 작은 값만 출력합니다.");
-                        double compare = sc.nextDouble();
-                        cal.smallFinder(compare);
-                    }
+                            double compare = sc.nextDouble();
+                            cal.smallFinder(compare);
+                        } else System.out.println("해당하는 기능이 없습니다.");
+                        break;
+                    case "fix":  // 수정
+                        System.out.println("계산 기록: " + cal.getResult());
+                        System.out.println("수정을 원하시는 번호를 입력해주세요 (왼쪽부터 0번)");
+                        int num = sc.nextInt();
+                        System.out.println("수정하실 숫자를 입력해주세요.");
+                        String fixedNum = sc.next();
+                        T fixed = converter.apply(fixedNum);
+                        cal.result.set(num, fixed);
+                        System.out.println("계산 기록: " + cal.getResult());
+                        break;
+                    default:                       // 생성
+                        System.out.print("연산자 (+, -, *, /): ");
+                        String op = sc.next();
 
-                } // 조회
+                        System.out.print("숫자 2: ");
+                        String input2 = sc.next();
 
-                else if (input1.equals("fix")) { // 수정
-                    System.out.println("계산 기록: " + cal.getResult());
-                    System.out.println("수정을 원하시는 번호를 입력해주세요 (왼쪽부터 0번)");
-                    int num = sc.nextInt();
-                    System.out.println("수정하실 숫자를 입력해주세요.");
-                    String fixedNum = sc.next();
-                    T fixed = converter.apply(fixedNum);
-                    cal.result.set(num, fixed);
-                    System.out.println("계산 기록: " + cal.getResult());
-                }
-                else {                      // 생성
-                    System.out.print("연산자 (+, -, *, /): ");
-                    String op = sc.next();
+                        T n1 = converter.apply(input1);
+                        T n2 = converter.apply(input2);
 
-                    System.out.print("숫자 2: ");
-                    String input2 = sc.next();
-
-                    T n1 = converter.apply(input1);
-                    T n2 = converter.apply(input2);
-
-                    cal.calculate(n1, n2, op);
+                        cal.calculate(n1, n2, op);
+                        break;
                 }
 
             } catch (Exception e) {
