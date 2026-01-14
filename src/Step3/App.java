@@ -22,10 +22,10 @@ public class App {
                     System.out.println("종료합니다.");
                     break;
                 } else {
-                    System.out.println("다시 입력해주세요.");
+                    System.out.println("[입력 오류] 다시 입력해주세요.");
                 }
             }catch (Exception e) {
-                System.out.println("다시 입력해주세요.");
+                System.out.println("[입력 오류] 다시 입력해주세요.");
                 sc.next();
             }
         }
