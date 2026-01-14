@@ -10,7 +10,7 @@ public class App {
 
         while(true) {
             try {
-                System.out.println("1. 정수 계산기(int) 2. 실수 계산기(double) 3. 정수 숫자 찾기 4. 실수 숫자 찾기 0. 종료");
+                System.out.println("1. 정수 계산기(int) 2. 실수 계산기(double) 0. 종료");
                 int action = sc.nextInt();
                 if (action == 1) {
                     System.out.println("[정수 계산기] 숫자 두 개와 연산자를 입력하세요 기록 조회: history 기록 삭제: remove 수정: fix 종료: exit");
