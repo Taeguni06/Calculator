@@ -1,7 +1,6 @@
 package Step3;
 
 import java.util.Arrays;
-import java.util.function.BiFunction;
 import java.util.function.DoubleBinaryOperator;
 
 public enum Operator {
@@ -19,8 +18,8 @@ public enum Operator {
         this.op = op;
     }
 
-    public double apply(double a, double b){
-        return op.applyAsDouble(a, b);
+    public <T extends Number> double apply(T a, T b){
+        return op.applyAsDouble(a.doubleValue(), b.doubleValue());
     }
 
     public static Operator fromSymbol(String symbol) {
@@ -29,5 +28,4 @@ public enum Operator {
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("잘못된 연산자입니다."));
     }
-
 }

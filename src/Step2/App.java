@@ -21,11 +21,14 @@ public class App {
                             System.out.println("숫자 1:");
                             int num1 = sc.nextInt();
                             sc.nextLine(); // 범퍼
+
                             System.out.println("연산자 (+, -, *, /) ");
                             String operator = sc.nextLine();
+
                             System.out.println("숫자 2:");
                             int num2 = sc.nextInt();
                             sc.nextLine(); // 범퍼
+
                             calculator.calculate(num1,num2,operator);
                             break;
                         }
