@@ -16,7 +16,7 @@ public class App {
                 System.out.println("1. 정수 계산기(int) 2. 실수 계산기(double) 3. 정수 숫자 찾기 4. 실수 숫자 찾기 0. 종료");
                 int action = sc.nextInt();
                 if (action == 1) {
-                    System.out.println("[정수 계산기] 숫자 두 개와 연산자를 입력하세요 종료: exit 기록 삭제: remove");
+                    System.out.println("[정수 계산기] 숫자 두 개와 연산자를 입력하세요 종료: exit 기록 조회: history 기록 삭제: remove");
                     Calculator.runCalculator(sc, intCal, Integer::valueOf);
                 } else if (action == 2) {
                     System.out.println("[실수 계산기] 숫자 두 개와 연산자를 입력하세요 종료: exit 기록 조회: history 기록 삭제: remove");
