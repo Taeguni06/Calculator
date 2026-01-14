@@ -21,10 +21,16 @@ public class Calculator<T extends Number>{
         System.out.println("결과: " + finalResult);
     }
 
-    void numberFinder(double n) { // 입력한 값보다 큰 값 출력
+    void bigFinder(double n) { // 입력한 값보다 큰 값 출력
         result.stream()
                 .filter(x -> x.doubleValue() > n)
                 .forEach(x -> System.out.println("더 큰 값: " + x));
+    }
+
+    void smallFinder(double n) { // 입력한 값보다 큰 값 출력
+        result.stream()
+                .filter(x -> x.doubleValue() < n)
+                .forEach(x -> System.out.println("더 작은 값: " + x));
     }
 
     public ArrayList<T> getResult() { // 기록 조회
@@ -51,9 +57,18 @@ public class Calculator<T extends Number>{
 
                 else if (input1.equals("history")) {
                     System.out.println("계산 기록: " + cal.getResult());
-                    System.out.println("입력하신 값보다 큰 값만 출력합니다.");  // 더 큰 값 출력
-                    double compare = sc.nextDouble();
-                    cal.numberFinder(compare);
+                    System.out.println("1. 큰 값 찾기 2. 작은 값 찾기");
+                    int action = sc.nextInt();
+                    if (action == 1) {
+                        System.out.println("입력하신 값보다 큰 값만 출력합니다.");  // 더 큰 값 출력
+                        double compare = sc.nextDouble();
+                        cal.bigFinder(compare);
+                    } else if (action == 2) {
+                        System.out.println("입력하신 값보다 작은 값만 출력합니다.");
+                        double compare = sc.nextDouble();
+                        cal.smallFinder(compare);
+                    }
+
                 } // 조회
 
                 else if (input1.equals("fix")) { // 수정
