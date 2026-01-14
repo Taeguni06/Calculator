@@ -46,17 +46,29 @@ public class Calculator<T extends Number>{
                 System.out.print("숫자 1: ");
                 String input1 = sc.next();
                 if (input1.equals("exit")) break;
-                else if (input1.equals("remove")) { cal.removeResult(); }
+
+                else if (input1.equals("remove")) { cal.removeResult(); } // 삭제
 
                 else if (input1.equals("history")) {
-                    System.out.println("계산 기록: " + cal.getResult()); }
+                    System.out.println("계산 기록: " + cal.getResult()); } // 조회
 
                 else if (input1.equals("find")){
-                    System.out.println("입력하신 값보다 큰 값을 출력합니다.");
+                    System.out.println("입력하신 값보다 큰 값을 출력합니다.");  // 더 큰 값 출력
                     double compare = sc.nextDouble();
                     cal.numberFinder(compare);
                 }
-                else {
+
+                else if (input1.equals("fix")) { // 수정
+                    System.out.println("계산 기록: " + cal.getResult());
+                    System.out.println("수정을 원하시는 번호를 입력해주세요 (왼쪽부터 0번)");
+                    int num = sc.nextInt();
+                    System.out.println("수정하실 숫자를 입력해주세요.");
+                    String fixedNum = sc.next();
+                    T fixed = converter.apply(fixedNum);
+                    cal.result.set(num, fixed);
+                    System.out.println("계산 기록: " + cal.getResult());
+                }
+                else {                      // 생성
                     System.out.print("연산자 (+, -, *, /): ");
                     String op = sc.next();
 
