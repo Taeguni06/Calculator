@@ -58,7 +58,7 @@ public class Calculator<T extends Number>{
         label:
         while (true) {
             try {
-                System.out.print("숫자 1: ");
+                System.out.print("[기록 조회: history 기록 수정: fix 삭제: remove 종료: exit]\n숫자 1: ");
                 String input1 = sc.next();
                 label1:
                 switch (input1) {
@@ -91,6 +91,9 @@ public class Calculator<T extends Number>{
 
 
                     case "history":  // 조회
+                        if(cal.result.isEmpty()) {
+                            System.out.println("기록이 없습니다.");
+                        } else {
                         System.out.println("계산 기록: " + cal.getResult());
                         System.out.println("1. 큰 값 찾기 2. 작은 값 찾기 0. 종료");
                         String history = sc.next();
@@ -111,11 +114,13 @@ public class Calculator<T extends Number>{
                                 cal.smallFinder(compare);
                                 break;
                             }
+
                             case "0":
                                 break label1;
                             default:
                                 System.out.println("해당하는 기능이 없습니다.");
                                 break;
+                        }
                         }
                         break;
 
