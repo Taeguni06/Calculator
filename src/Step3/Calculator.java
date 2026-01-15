@@ -60,6 +60,7 @@ public class Calculator<T extends Number>{
             try {
                 System.out.print("숫자 1: ");
                 String input1 = sc.next();
+                label1:
                 switch (input1) {
                     case "exit":
                         break label;
@@ -93,18 +94,29 @@ public class Calculator<T extends Number>{
                         System.out.println("계산 기록: " + cal.getResult());
                         System.out.println("1. 큰 값 찾기 2. 작은 값 찾기 0. 종료");
                         String history = sc.next();
-                        if (history.equals("1")) {
-                            System.out.println("입력하신 값보다 큰 값만 출력합니다.");  // 더 큰 값 출력
+                        switch (history) {
+                            case "1": {
+                                System.out.println("입력하신 값보다 큰 값만 출력합니다.");  // 더 큰 값 출력
 
-                            double compare = sc.nextDouble();
-                            cal.bigFinder(compare);
-                        } else if (history.equals("2")) {
-                            System.out.println("입력하신 값보다 작은 값만 출력합니다."); // 더 작은 값 출력
 
-                            double compare = sc.nextDouble();
-                            cal.smallFinder(compare);
-                        } else if (history.equals("0")) { break;
-                        }else System.out.println("해당하는 기능이 없습니다.");
+                                double compare = sc.nextDouble();
+                                cal.bigFinder(compare);
+                                break;
+                            }
+                            case "2": {
+                                System.out.println("입력하신 값보다 작은 값만 출력합니다."); // 더 작은 값 출력
+
+
+                                double compare = sc.nextDouble();
+                                cal.smallFinder(compare);
+                                break;
+                            }
+                            case "0":
+                                break label1;
+                            default:
+                                System.out.println("해당하는 기능이 없습니다.");
+                                break;
+                        }
                         break;
 
 
