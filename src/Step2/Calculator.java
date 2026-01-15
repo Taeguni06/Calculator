@@ -7,16 +7,19 @@ public class    Calculator {
 
     void calculate(int a, int b, String oper) {
         switch (oper) {
-            case "+": result.add(a+b); break;
-            case "-": result.add(a-b); break;
-            case "*": result.add(a*b); break;
+            case "+": result.add(a+b); System.out.println("결과: " + result.getFirst()); break;
+            case "-": result.add(a-b); System.out.println("결과: " + result.getFirst()); break;
+            case "*": result.add(a*b); System.out.println("결과: " + result.getFirst()); break;
             case "/": if (b==0) {
                 System.out.println("0으로는 나눌 수 없습니다.");
             } else {
-                result.add(a/b);
+                result.add(a/b) ;
+                System.out.println("결과: " + result.getFirst());
             }  break;
+            default:
+                System.out.println("지원하지 않는 연산자입니다.");
+                break;
         }
-        System.out.println("계산 기록:" + result);
     }
 
     void removeResultFirst() {
